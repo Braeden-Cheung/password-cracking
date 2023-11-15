@@ -11,7 +11,7 @@ wget https://github.com/openwall/john/archive/bleeding-jumbo.tar.gz
 
 tar -xzvf bleeding-jumbo.tar.gz
 
-#configure and install john using 
+configure and install john using 
 
 cd john-bleeding-jumbo/src/
 
@@ -32,13 +32,24 @@ when cracking press any key for the current status or q to abort the session. Us
 
 add cracked passwords to file ./john --show file | cut -d: -f2 | head -n -1 > <filename>
 
-#Given challenge 
+# Given challenge 
+
 From the password list 101193611 find any two users that have identical passwords, two users that have a password palindrome, two users that have a password with prefix 'com' prepended to an anagram.
 
 First run 
 
 ./john 101193611 --wordlist=password.lst --rules=best64
 
-this should give you two users who have same password and two users with palindrome. Add all cracked passwords to new wordlist.
+this should give you two users who have same password and two users with palindrome. Best64 has a palindrome rule. Add all cracked passwords to new wordlist.
 
-To get two users that have a password with prefix 'com' prepended to an anagram create a new wordlist of anagrams of the previously cracked passwords using anagram.py. Next create a new .rule file 
+To get two users that have a password with prefix 'com' prepended to an anagram create a new wordlist of anagrams of the previously cracked passwords using anagram.py. Next create a new .rule file part2.rule and add it to the john.conf file. part2.rule has 1 rule that prepends 'com'. Run john with the new anagram wordlist with the newly created rule. 
+
+david and micheal have password: jones071
+
+mary password: aayiH
+
+jones password: Hiyaa
+
+sarah password: comBlah2
+
+jennifer password: comh2Bal
