@@ -3,6 +3,7 @@ Simple password cracking using wordlist and rules using john the ripper
 
 # install required packages
 sudo apt-get -y install git build-essential libssl-dev zlib1g-dev
+
 sudo apt-get -y install yasm pkg-config libgmp-dev libpcap-dev libbz2-dev
 
 # download and extract the source code from Openwall github repo
